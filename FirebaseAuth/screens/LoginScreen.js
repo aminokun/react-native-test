@@ -1,4 +1,4 @@
-import { KeyboardAvoidingView, PermissionsAndroid, StyleSheet, Text, TextInput, View } from 'react-native'
+import { KeyboardAvoidingView, PermissionsAndroid, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace'
 
@@ -22,6 +22,16 @@ const LoginScreen = () => {
             style={styles.input}
             secureTextEntry
         />
+      </View>
+
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+        onPress={() => { }}
+        style={styles.button}
+        >
+        <Text>Login</Text>
+
+        </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
   )
