@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "klarity-mobile-app",
-    "slug": "klarity-mobile-app",
+    "name": "FirebaseAuth",
+    "slug": "FirebaseAuth",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
