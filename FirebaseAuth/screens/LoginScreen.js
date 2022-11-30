@@ -1,4 +1,4 @@
-import { KeyboardAvoidingView, PermissionsAndroid, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View, } from 'react-native'
+import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, } from 'react-native'
 import React, {useEffect, useState} from 'react'
 import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace'
 import { auth } from '../firebase'
