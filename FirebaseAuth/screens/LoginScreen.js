@@ -2,6 +2,7 @@ import { KeyboardAvoidingView, PermissionsAndroid, StyleSheet, Text, TextInput, 
 import React, {useEffect, useState} from 'react'
 import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace'
 import { auth } from '../firebase'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { useNavigation } from '@react-navigation/native'
 
 const LoginScreen = () => {
@@ -22,7 +23,7 @@ const LoginScreen = () => {
 
   const handleSignUp = () => {
     auth
-    .createUserWithEmailAndPassword(email,password)
+    .createUserWithEmailAndPassword(auth, email, password)
     .then(userCredentials => { 
       const user = userCredentials.user;
       console.log('Registered with: ', user.email);
