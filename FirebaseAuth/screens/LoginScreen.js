@@ -6,51 +6,37 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { useNavigation } from '@react-navigation/native'
 
 const LoginScreen = () => {
-  const [isSignedIn, setIsSignedIn] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState;('')
+  const {isSignedIn,setIsSignedIn} = useState(false);
+  const {email,setEmail} = useState('');
+  const {password,setPassword} = useState;('');
 
   const navigation = useNavigation()
 
-  // useEffect(() => {
-  //   const unsubscribe = auth.onAuthStateChanged(user => {
-  //     if (user ) {
-  //       navigation.navigate("Home")
-  //     }
-  //   })
-  //   return unsubscribe
-  // }, [])
-
-  const handleSignUp = () => {
+  const RegisterUser = () => {
     createUserWithEmailAndPassword(auth, email, password)
-    .then((resultBack)=>)
-  }
-
-  const handleLogin = () => {
-    auth
-    .signInWithEmailAndPassword(email, password)
-    .then(userCredentials => { 
-      const user = userCredentials.user;
-      console.log('Logged in with: ', user.email);
+    .then((resultBack)=>{
+      console.log(resultBack);
     })
-    .catch(error => alert(error.message))
-  }
-
+    .catch((re)=>{
+      console.log(re);
+    })
+    }
+  
 
   return (
     <KeyboardAvoidingView
     style={styles.container}
-    behavior = "padding"
+    behavior = 'padding'
     >
       <View style = { styles.inputContainer}>
         <TextInput
-            placeholder="Email"
+            placeholder='Email'
             value={email}
             onChangeText={ text => setEmail(text)}
             style={styles.input}
         />
         <TextInput
-            placeholder="Password"
+            placeholder='Password'
             value={password}
             onChangeText={ text => setPassword(text)}
             style={styles.input}
@@ -60,23 +46,23 @@ const LoginScreen = () => {
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity
-        onPress={handleLogin}
-        style={styles.button}
+        // onPress={handleLogin}
+        // style={styles.button}
         >
         <Text style={styles.buttonText}>Login</Text>
-
         </TouchableOpacity>
+
         <TouchableOpacity
-        onPress={handleSignUp}
+        onPress={RegisterUser}
         style={[styles.button, styles.buttonOutline]}
         >
         <Text style={styles.buttonOutlineText}>Register</Text>
-
         </TouchableOpacity>
+        
       </View>
     </KeyboardAvoidingView>
   )
-}
+  }
 
 export default LoginScreen
 
