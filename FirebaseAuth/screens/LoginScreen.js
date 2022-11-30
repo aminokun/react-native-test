@@ -6,29 +6,24 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { useNavigation } from '@react-navigation/native'
 
 const LoginScreen = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState;('')
 
   const navigation = useNavigation()
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      if (user ) {
-        navigation.navigate("Home")
-      }
-    })
-    return unsubscribe
-  }, [])
-
+  // useEffect(() => {
+  //   const unsubscribe = auth.onAuthStateChanged(user => {
+  //     if (user ) {
+  //       navigation.navigate("Home")
+  //     }
+  //   })
+  //   return unsubscribe
+  // }, [])
 
   const handleSignUp = () => {
-    auth
-    .createUserWithEmailAndPassword(auth, email, password)
-    .then(userCredentials => { 
-      const user = userCredentials.user;
-      console.log('Registered with: ', user.email);
-    })
-    .catch(error => alert(error.message))
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((resultBack)=>)
   }
 
   const handleLogin = () => {
