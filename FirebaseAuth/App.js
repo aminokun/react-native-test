@@ -6,12 +6,20 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { getAuth } from 'firebase/auth'
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
 
 
 const Stack = createNativeStackNavigator();
+const {isSignedIn,setIsSignedIn} = useState(false);
+const {email,setEmail} = useState('');
+const {password,setPassword} = useState;('');
+const navigation = useNavigation()
 
 export default function App() {
   return (
+
+    
     <NavigationContainer>
     <Stack.Navigator>
       <Stack.Screen options={{ headerShown: false}} name ="Login" component={LoginScreen} />

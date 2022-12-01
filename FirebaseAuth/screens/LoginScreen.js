@@ -1,15 +1,15 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, } from 'react-native'
 import React, {useEffect, useState} from 'react'
 import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace'
-import { auth } from '../firebase'
+import { auth } from '../firebase/firebase'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { useNavigation } from '@react-navigation/native'
+import  AsyncStorage  from '@react-native-async-storage/async-storage';
 
 const LoginScreen = () => {
   const {isSignedIn,setIsSignedIn} = useState(false);
   const {email,setEmail} = useState('');
   const {password,setPassword} = useState;('');
-
   const navigation = useNavigation()
 
   const RegisterUser = () => {
@@ -21,7 +21,6 @@ const LoginScreen = () => {
       console.log(re);
     })
     }
-  
 
   return (
     <KeyboardAvoidingView
@@ -32,13 +31,13 @@ const LoginScreen = () => {
         <TextInput
             placeholder='Email'
             value={email}
-            onChangeText={ text => setEmail(text)}
+            onChangeText={text=>setEmail(text)}
             style={styles.input}
         />
         <TextInput
             placeholder='Password'
             value={password}
-            onChangeText={ text => setPassword(text)}
+            onChangeText={text=>setPassword(text)}
             style={styles.input}
             secureTextEntry
         />
@@ -46,8 +45,8 @@ const LoginScreen = () => {
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity
-        // onPress={handleLogin}
-        // style={styles.button}
+        onPress={RegisterUser}
+        style={styles.button}
         >
         <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
